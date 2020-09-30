@@ -133,6 +133,13 @@ class TorchTensor(AbstractTensor):
             return self.child.shape
         else:
             return self.native_shape
+        
+    @property
+    def T(self):
+        if self.is_wrapper:
+            return self.child.T
+        else:
+            return self.native_T
 
     @property
     def data(self):
