@@ -97,6 +97,10 @@ class FixedPrecisionTensor(AbstractTensor):
         return self
 
     @property
+    def T(self):
+        return self.t()
+
+    @property
     def grad(self):
         """
         Gradient makes no sense for Fixed Precision Tensor, so we make it clear
@@ -260,6 +264,7 @@ class FixedPrecisionTensor(AbstractTensor):
         response = getattr(_self, "t")(*args, **kwargs)
 
         return response
+
 
     def mul_and_div(self, other, cmd):
         """
